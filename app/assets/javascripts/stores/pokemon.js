@@ -24,10 +24,13 @@
           break;
         case PokemonConstants.SINGLE_POKEMON_RECEIVED:
           var pokeIdx = payload.pokemon.id;
-          var newPokemons = _pokemons.filter(function (pokemon, pokeIdx) {
-            return (pokemon.id !== pokeIdx);
-          });
-          _pokemons = newPokemons.concat(payload.pokemon);
+          for (var i = 0; i< _pokemons.length; i++) {
+            if (_pokemons[i].id === pokeIdx) {
+              _pokemons[i] = payload.pokemon;
+              break;
+            }
+          }
+
           PokemonStore.detailChanged();
           break;
       }
@@ -40,7 +43,7 @@
     removePokemonsIndexChangeListener: function (callback) {
       this.removeListener(POKEMON_DETAIL_CHANGE_EVENT, callback);
     },
-    
+
     addPokemonDetailChangeListener: function (callback) {
       this.on(POKEMON_DETAIL_CHANGE_EVENT, callback);
     },

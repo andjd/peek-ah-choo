@@ -1,6 +1,7 @@
 var PokemonDetail = window.PokemonDetail = React.createClass({
 
   _onDetailChange: function () {
+
     this.setState( this.getStateFromStore());
   },
 
@@ -32,9 +33,12 @@ var PokemonDetail = window.PokemonDetail = React.createClass({
     if (!this.state.pokemon) { return <div></div>;}
     return(
       <div>
-        <div className="detail">
+        <div className="detail group">
           <img src={this.state.pokemon.image_url} />
+          <span>{this.state.pokemon.attack}</span>
+          <span>{this.state.pokemon.defense}</span>
         </div>
+          <ToysIndex toys={this.state.pokemon.toys}/>
       </div>
     );
   }

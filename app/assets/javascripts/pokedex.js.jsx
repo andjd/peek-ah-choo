@@ -5,6 +5,7 @@ $(document).on("ready", function () {
     (<Router>
       <Route path="/" component={Index}>
         <Route path="pokemon/:pokemonId" component={PokemonDetail} />
+        <Route path="pokemon/:pokemonId/toys/:toyId" components={{pokemons: PokemonDetail, toys: ToyDetail}} />
       </Route>
     </Router>),
     document.getElementById("pokedex")
