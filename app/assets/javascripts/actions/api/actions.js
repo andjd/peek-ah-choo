@@ -8,8 +8,10 @@
     });
   };
 
-
-
-
-
+  ApiActions.receiveSinglePokemon = function (data) {
+    AppDispatcher.dispatch({
+      actionType: PokemonConstants.SINGLE_POKEMON_RECEIVED,
+      pokemon: data
+    });
+  };
 }());

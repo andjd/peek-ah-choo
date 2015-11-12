@@ -3,8 +3,9 @@ var Index = window.Index = React.createClass ({
     return (
       <div>
         <div className="pokemon-index"> <PokemonsIndex /> </div>
+        {this.props.children}
       </div>
-    )
+    );
   }
 
 

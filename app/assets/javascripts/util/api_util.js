@@ -11,4 +11,15 @@
       }
     });
   };
+
+  ApiUtil.fetchSinglePokemon = function (pokemonId) {
+    $.ajax({
+      url: "api/pokemon/" + pokemonId,
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        ApiActions.receiveSinglePokemon(data);
+      }
+    });
+  };
 })();
